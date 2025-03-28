@@ -12,6 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <title>GAzone</title>
+        <link rel="stylesheet" href="../CSS/login.css" type="text/css">
     </head>
     <body>
         <h1>Sign In</h1>
