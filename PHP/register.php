@@ -10,17 +10,16 @@
         $creationDate= date("Y-m-d H:i:s");        
         $passHash=$_POST['passHash'];
         $passHashV=$_POST['passwdV'];
-        $active=1;
+        $active=0;
+
+        $caracters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $random = str_shuffle(substr($caracters, 0, 64));
+
+        $activationCode=hash('sha256', $random);
 
         $camps= [
             'username' => $username,
-            'mail' => $mail,
-            'userFirstName' => $userFirstName,
-            'userLastName' => $userLastName,
-            'creationDate' => $creationDate, 
-            'passHash' => $passHash,
-            'passHashV' => $passHashV,
-            'active' => $active
+            'mail' => $mail
         ];
 
         foreach($camps as $key => $value) {
@@ -48,8 +47,8 @@
         if ($inserir2==1 && $inserir==1) {
             if($passHash == $passHashV) {
                 $passHash2= password_hash($passHash, PASSWORD_DEFAULT);
-                $sql= "INSERT INTO usuaris(username, mail, passHash, userFirstName, userLastName, creationDate, active)
-                VALUES('$username', '$mail', '$passHash2', '$userFirstName', '$userLastName', '$creationDate', '$active')";
+                $sql= "INSERT INTO usuaris(username, mail, passHash, userFirstName, userLastName, creationDate, active, activationCode)
+                VALUES('$username', '$mail', '$passHash2', '$userFirstName', '$userLastName', '$creationDate', '$active', '$activationCode')";
 
                 $insert = $db->query($sql);
 
@@ -58,8 +57,9 @@
                     $_SESSION['username'] = $username;
                     $_SESSION['mail'] = $mail;
                     $_SESSION['active'] = $active;
+                    $_SESSION['activationCode'] = $activationCode;
 
-                    header('Location: ../HTML/index.html');
+                    header('Location: ../mailSend.php');
                 }else{
                     print_r( $db->errorinfo());
                 }
