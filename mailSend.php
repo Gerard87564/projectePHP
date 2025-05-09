@@ -18,7 +18,7 @@
     $mail->Username  =  '#';
     $mail->Password  =  '#';
 
-    $mail->SetFrom('gerard.gonzalezp@educem.net', 'gerard.gonzalezp@educem.net');
+    $mail->SetFrom('#', '#');
     $mail->Subject='Activation link';
     $mail->AddEmbeddedImage('IMG/ghost-svgrepo-com.png', 'logo');
     $mail->MsgHTML("<!DOCTYPE html>
