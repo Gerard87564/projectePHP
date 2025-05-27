@@ -16,7 +16,7 @@
     $mail->Port  =  587;
     
     $mail->Username  =  'gerard.gonzalezp@educem.net';
-    $mail->Password  =  'caax vymj ndcr zlqs';
+    $mail->Password  =  '#';
 
     $mail->SetFrom('gerard.gonzalezp@educem.net', 'gerard.gonzalezp@educem.net');
     $mail->Subject='Activation link';
