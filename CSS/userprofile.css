@@ -18,19 +18,16 @@ body {
     min-height: 100vh;
 }
 
-main a {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background: #61dafb;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-main a:hover {
-    background: #21a1f1;
+main {
+    flex: 1; 
+    padding: 2em;
+    text-align: center;
+    background: #fff;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header {
@@ -83,26 +80,6 @@ nav a {
     text-decoration: none;
 }
 
-main {
-    position: relative;
-    top: 20em;
-    left: 1em;
-    text-align: center;
-    max-width: 600px;
-    padding: 2em;
-    margin: 0 auto;
-}
-
-#main-a {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-#main-a a {
-    margin-bottom: 1em;
-}
-
 footer {
     background-color: #282c34;
     color: white;
@@ -113,36 +90,68 @@ footer {
     margin-top: 10em;
 }
 
-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 1em;
+    font-family: sans-serif;
+}
+
+.profile-card {
+    background: white;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-banner-form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.upload-banner-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
     cursor: pointer;
-    font-size: 16px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.profile-form-inside-banner {
+    position: absolute;
+    bottom: 0px;
+    left: 30px;    
 }
-
-section {
-    margin-top: 8em;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
 
 .profile-pic-container {
-    width: 50px; 
-    height: 50px;
-    overflow: hidden;
+    position: relative;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 6px;
+    overflow: hidden;
+    border: 4px solid white;
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .profile-pic {
@@ -150,18 +159,94 @@ section {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    display: block;
 }
 
-.default-profile-pic {
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: #bbb;
     border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-pic-container:hover .overlay {
+    opacity: 1;
+}
+
+.upload-form input[type="file"] {
+    margin-top: 0.5em;
+}
+
+.upload-form button {
+    margin-top: 0.5em;
+    background-color: #1da1f2;
     color: white;
-    font-size: 1em;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.info-block {
+    margin-top: 1.5em;
+    text-align: left;
+}
+
+.info-block button {
+    margin-top: 0.5em;
+    background-color: #e1e8ed;
+    border: none;
+    padding: 0.4em 0.8em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.info-block textarea,
+.info-block input[type="text"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.new-post {
+    background: white;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    margin-bottom: 2em;
+}
+
+.new-post textarea {
+    width: 100%;
+    padding: 0.7em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.new-post input[type="file"],
+.new-post button {
+    margin-top: 0.5em;
+}
+
+.new-post button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 0.6em 1.2em;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 .posts-section .post {
@@ -180,6 +265,45 @@ section {
     border-radius: 8px;
 }
 
+.banner {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-banner-form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+}
+
+.upload-banner-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.4em 0.6em;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.upload-banner-btn:hover {
+    background-color: #0056b3;
+}
+
+.upload-banner-form input[type="file"] {
+    display: none;
+}
+
 
 .reaccions button {
     font-size: 24px;
@@ -188,7 +312,6 @@ section {
     cursor: pointer;
     margin-right: 8px;
     transition: transform 0.2s;
-    color: black;
 }
 
 .reaccions button:hover {
@@ -214,7 +337,6 @@ section {
     border-bottom: 1px solid #ddd;
     padding: 5px 0;
 }
-
 
 .formulari-comentari {
     display: flex;
@@ -261,27 +383,15 @@ section {
     background-color: #0d8ddb;
 }
 
-.puntuacio-post {
-    font-weight: bold;
-    color: #ffaa00;
-    margin-top: 10px;
-}
-
 .etiqueta {
     display: inline-block;
-    background-color: #e1f5fe;
-    padding: 4px 8px;
-    margin: 2px 5px 2px 0;
+    background-color: #e0f7fa;
+    color: #00796b;
     border-radius: 12px;
-    color: #0277bd;
-    text-decoration: none;
+    padding: 4px 8px;
+    margin-right: 4px;
     font-size: 0.85rem;
 }
-
-.etiqueta:hover {
-    background-color: #b3e5fc;
-}
-
 
 @media only screen and (min-width: 300px) and (max-width: 450px) {
     header h1 {
@@ -465,7 +575,7 @@ section {
         font-size: 1.5rem;
         left: -30em;
     }
-
+    
     nav {
         flex-direction: column;
         justify-content: center;

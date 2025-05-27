@@ -15,10 +15,10 @@
     $mail->Host  =  'smtp.gmail.com';
     $mail->Port  =  587;
     
-    $mail->Username  =  '#';
-    $mail->Password  =  '#';
+    $mail->Username  =  'gerard.gonzalezp@educem.net';
+    $mail->Password  =  'caax vymj ndcr zlqs';
 
-    $mail->SetFrom('#', '#');
+    $mail->SetFrom('gerard.gonzalezp@educem.net', 'gerard.gonzalezp@educem.net');
     $mail->Subject='Activation link';
     $mail->AddEmbeddedImage('IMG/ghost-svgrepo-com.png', 'logo');
     $mail->MsgHTML("<!DOCTYPE html>
